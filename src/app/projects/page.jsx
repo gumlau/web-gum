@@ -8,41 +8,63 @@ import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 
+function NextjsIcon() {
+  return (
+    <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-8 w-8">
+      <mask
+        id="mask0_408_134"
+        style={{ maskType: 'alpha' }}
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="0"
+        width="180"
+        height="180"
+      >
+        <circle cx="90" cy="90" r="90" fill="black" />
+      </mask>
+      <g mask="url(#mask0_408_134)">
+        <circle cx="90" cy="90" r="87" fill="black" stroke="white" strokeWidth="6" />
+        <path
+          d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z"
+          fill="url(#paint0_linear_408_134)"
+        />
+        <rect x="115" y="54" width="12" height="72" fill="url(#paint1_linear_408_134)" />
+      </g>
+      <defs>
+        <linearGradient
+          id="paint0_linear_408_134"
+          x1="109"
+          y1="116.5"
+          x2="144.5"
+          y2="160.5"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_408_134"
+          x1="121"
+          y1="54"
+          x2="120.799"
+          y2="106.875"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+}
+
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'Next.js SEO Blog Starter',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
-  },
-  {
-    name: 'Animaginary',
-    description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
-  },
-  {
-    name: 'HelioStream',
-    description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
-  },
-  {
-    name: 'cosmOS',
-    description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
-  },
-  {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
+      'A modern, SEO-optimized blog starter template built with Next.js 14, TypeScript, and Tailwind CSS. Features include App Router, Server Components, built-in SEO optimization, and mobile-first responsive design. This template focuses on performance, SEO best practices, and great developer experience.',
+    link: { href: 'https://github.com/gumlau/nextjs-seo-blog-starter', label: 'View on GitHub' },
+    icon: NextjsIcon,
   },
 ]
 
@@ -59,28 +81,23 @@ function LinkIcon(props) {
 
 export const metadata = {
   title: 'Projects',
-  description: 'Things I’ve made trying to put my dent in the universe.',
+  description: 'A showcase of my technical projects and contributions.',
 }
 
 export default function Projects() {
   return (
     <SimpleLayout
-      title="Things I’ve made trying to put my dent in the universe."
-      intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+      title="My Projects Portfolio"
+      intro="Showcasing my latest project - a modern, SEO-optimized blog starter template that demonstrates my expertise in Next.js, TypeScript, and web development best practices."
     >
       <ul
         role="list"
-        className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-1 lg:grid-cols-1"
       >
         {projects.map((project) => (
           <Card as="li" key={project.name}>
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white ring-1 shadow-md shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image
-                src={project.logo}
-                alt=""
-                className="h-8 w-8"
-                unoptimized
-              />
+              <project.icon />
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
               <Card.Link href={project.link.href}>{project.name}</Card.Link>
