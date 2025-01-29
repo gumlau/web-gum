@@ -283,7 +283,7 @@ export default async function Home() {
             Website Designer, Founder, and Business Analyst
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I'm Gan, a website designer and business analyst based in Singapore. Currently working at WeGo
+            I&apos;m Gan, a website designer and business analyst based in Singapore. Currently working at WeGo
             while pursuing my exchange studies at NUS. I specialize in creating modern web applications
             and delivering data-driven business insights.
           </p>

@@ -62,11 +62,11 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I'm a Business Analyst at WeGo, where I specialize in Data Visualization & Business Intelligence.
+              I&apos;m a Business Analyst at WeGo, where I specialize in Data Visualization & Business Intelligence.
               My daily toolkit includes Python, Tableau, PowerBI, SQL, and Pandas.
             </p>
             <p>
-              In my free time, I'm passionate about web development, building applications with Next.js and Vue.
+              In my free time, I&apos;m passionate about web development, building applications with Next.js and Vue.
               I work extensively with JavaScript and TypeScript to create modern, responsive web applications.
             </p>
             <p>
