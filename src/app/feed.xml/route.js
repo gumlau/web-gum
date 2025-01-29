@@ -6,7 +6,12 @@ export async function GET(req) {
   let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
   if (!siteUrl) {
-    throw Error('Missing NEXT_PUBLIC_SITE_URL environment variable')
+    return new Response('RSS feed not configured', {
+      status: 404,
+      headers: {
+        'content-type': 'text/plain',
+      },
+    })
   }
 
   let author = {
