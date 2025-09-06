@@ -60,10 +60,39 @@ function NextjsIcon() {
 
 const projects = [
   {
-    name: 'Next.js SEO Blog Starter',
-    description:
-      'A modern, SEO-optimized blog starter template built with Next.js 14, TypeScript, and Tailwind CSS. Features include App Router, Server Components, built-in SEO optimization, and mobile-first responsive design. This template focuses on performance, SEO best practices, and great developer experience.',
-    link: { href: 'https://github.com/gumlau/nextjs-seo-blog-starter', label: 'View on GitHub' },
+    name: 'Lumilib: Curated Knowledge Community Platform',
+    description: 'Founded and scaled knowledge curation platform serving 30,000+ active readers with daily, weekly, and monthly content delivery. Built sustainable community ecosystem with 600+ curated articles, focusing on "first-hand rather than retold, timeless rather than trending" content strategy.',
+    link: { href: 'https://www.lumilib.com/main', label: 'Visit Lumilib' },
+    icon: NextjsIcon,
+  },
+  {
+    name: 'BotHub: P2P AI Chatbot Platform & Marketplace',
+    description: 'Built comprehensive chatbot platform combining real-time conversation interface with P2P bot marketplace functionality. Features include multi-bot conversations, bot discovery, rating systems, and integrated payment workflows using Claude API and modern web technologies.',
+    link: { href: '#', label: 'Platform Demo' },
+    icon: NextjsIcon,
+  },
+  {
+    name: 'Wego Travel Insights Dashboard',
+    description: 'Led complete product lifecycle from stakeholder interviews to global deployment for enterprise strategic planning dashboard. Product successfully showcased at industry conferences and adopted company-wide, achieving 300% efficiency improvement in strategic planning.',
+    link: { href: 'https://wego-strategy.vercel.app/', label: 'View Dashboard' },
+    icon: NextjsIcon,
+  },
+  {
+    name: 'AI-Powered 3D Visualization System for Ophthalmic Surgery',
+    description: 'Designed system architecture balancing medical safety requirements with intuitive user experience for surgical environments. Led cross-disciplinary team coordination and delivered comprehensive technical documentation, securing 10,000 RMB innovation funding.',
+    link: { href: '#', label: 'Technical Documentation' },
+    icon: NextjsIcon,
+  },
+  {
+    name: 'Next.js SEO Blog Starter Template',
+    description: 'Built and deployed open-source blog template with comprehensive SEO optimization, gaining 53+ GitHub stars and community adoption. Features one-click Vercel deployment, markdown-based content management, and mobile-optimized interface using Next.js 14 and TypeScript.',
+    link: { href: 'https://nextjs-seo-blog-starter.vercel.app', label: 'View Demo' },
+    icon: NextjsIcon,
+  },
+  {
+    name: 'Biomimetic AUV and Subsea Cable Recognition System',
+    description: 'Developed biomimetic autonomous underwater vehicle integrated with vision-based cable detection and positioning capabilities. Created virtual underwater dataset and optimized recognition algorithms for complex subsea environments. Supervised by Academician Lin Jian, secured 15,000 RMB government funding.',
+    link: { href: 'https://gumlau.github.io/RayVision/', label: 'View Project' },
     icon: NextjsIcon,
   },
 ]
@@ -80,19 +109,19 @@ function LinkIcon(props) {
 }
 
 export const metadata = {
-  title: 'Projects',
-  description: 'A showcase of my technical projects and contributions.',
+  title: 'Product Experience',
+  description: 'A comprehensive showcase of my product development projects, from AI platforms to community-driven applications.',
 }
 
 export default function Projects() {
   return (
     <SimpleLayout
-      title="My Projects Portfolio"
-      intro="Showcasing my latest project - a modern, SEO-optimized blog starter template that demonstrates my expertise in Next.js, TypeScript, and web development best practices."
+      title="Product Experience Portfolio"
+      intro="From founding a knowledge curation platform serving 30,000+ readers to developing AI-powered surgical systems, here's a comprehensive showcase of my product development journey across various domains."
     >
       <ul
         role="list"
-        className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-1 lg:grid-cols-1"
+        className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-2"
       >
         {projects.map((project) => (
           <Card as="li" key={project.name}>

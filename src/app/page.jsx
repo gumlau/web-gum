@@ -214,6 +214,11 @@ function Role({ role }) {
         <dd className="text-xs text-zinc-500 dark:text-zinc-400">
           {role.title}
         </dd>
+        {role.location && (
+          <dd className="text-xs text-zinc-400 dark:text-zinc-500">
+            {role.location}
+          </dd>
+        )}
         <dt className="sr-only">Date</dt>
         <dd
           className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
@@ -223,29 +228,120 @@ function Role({ role }) {
           <span aria-hidden="true">—</span>{' '}
           <time dateTime={endDate}>{endLabel}</time>
         </dd>
+        {role.details && (
+          <dd className="mt-1 w-full text-xs text-zinc-600 dark:text-zinc-400">
+            {role.details}
+          </dd>
+        )}
       </dl>
     </li>
+  )
+}
+
+function Education() {
+  let education = [
+    {
+      institution: 'Southern University of Science and Technology (SUSTech)',
+      degree: 'Bachelor of Science in Computer Science',
+      logo: nusLogo, // Placeholder for SUSTech logo
+      start: 'Sep 2022',
+      end: 'Jun 2026',
+      location: 'Shenzhen, China',
+      details: 'GPA: 3.79/4.0 | Coursework: Computer Architecture, Data Analytics, Machine Learning, HCI'
+    },
+    {
+      institution: 'National University of Singapore (NUS)',
+      degree: 'Entrepreneurship & Business Analytics',
+      logo: nusLogo,
+      start: 'Jan 2025',
+      end: 'Jun 2025',
+      location: 'Singapore',
+      details: 'NUS NOC Inbound Programme | Coursework: Business Analytics, Venture Creation, Product Strategy, UX Design'
+    }
+  ]
+
+  return (
+    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+        <svg className="h-6 w-6 flex-none" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443a55.381 55.381 0 015.25 2.882V15" />
+        </svg>
+        <span className="ml-3">Education</span>
+      </h2>
+      <ol className="mt-6 space-y-4">
+        {education.map((edu, eduIndex) => (
+          <li key={eduIndex} className="flex gap-4">
+            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full ring-1 shadow-md shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+              <Image src={edu.logo} alt="" className="h-7 w-7" unoptimized />
+            </div>
+            <dl className="flex flex-auto flex-wrap gap-x-2">
+              <dt className="sr-only">Institution</dt>
+              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                {edu.institution}
+              </dd>
+              <dt className="sr-only">Degree</dt>
+              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+                {edu.degree}
+              </dd>
+              {edu.location && (
+                <dd className="text-xs text-zinc-400 dark:text-zinc-500">
+                  {edu.location}
+                </dd>
+              )}
+              <dt className="sr-only">Date</dt>
+              <dd className="ml-auto text-xs text-zinc-400 dark:text-zinc-500">
+                {edu.start} — {edu.end}
+              </dd>
+              {edu.details && (
+                <dd className="mt-1 w-full text-xs text-zinc-600 dark:text-zinc-400">
+                  {edu.details}
+                </dd>
+              )}
+            </dl>
+          </li>
+        ))}
+      </ol>
+    </div>
   )
 }
 
 function Resume() {
   let resume = [
     {
-      company: 'WeGo',
+      company: 'McGill University',
+      title: 'Data Science Research Intern',
+      logo: nusLogo, // Placeholder, will update with McGill logo later
+      start: 'Jun 2025',
+      end: 'Sep 2025',
+      location: 'Montréal, Canada',
+      details: 'Machine learning pipelines for crop yield prediction using multitemporal drone imagery'
+    },
+    {
+      company: 'Wego Pte Ltd',
       title: 'Business Analyst',
       logo: wegoLogo,
-      start: '2023',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
+      start: 'Jan 2025',
+      end: 'Jun 2025',
+      location: 'Singapore',
+      details: 'Built MVP strategic planning dashboard, presented at international conferences'
+    },
+    {
+      company: 'Cuboid.AI',
+      title: 'AI Product Developer',
+      logo: nusLogo, // Placeholder
+      start: 'Jun 2024',
+      end: 'Aug 2024',
+      location: 'Remote',
+      details: 'Fine-tuned LLMs for user scenarios, awarded Silver Prize in Shokz Cup Competition'
     },
     {
       company: 'National University of Singapore',
-      title: 'Exchange Student',
+      title: 'Entrepreneurship & Business Analytics Student',
       logo: nusLogo,
-      start: '2023',
-      end: '2024',
+      start: 'Jan 2025',
+      end: 'Jun 2025',
+      location: 'Singapore',
+      details: 'NUS NOC Inbound Programme focusing on venture creation and product strategy'
     },
   ]
 
@@ -280,12 +376,10 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Website Designer, Founder, and Business Analyst
+            AI Product Developer, Data Scientist, and Business Analyst
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I&apos;m Gan, a website designer and business analyst based in Singapore. Currently working at WeGo
-            while pursuing my exchange studies at NUS. I specialize in creating modern web applications
-            and delivering data-driven business insights.
+            I&apos;m Gan Liu, an AI Product Developer and Data Scientist with experience in machine learning, product strategy, and business analytics. Currently pursuing Computer Science at SUSTech while gaining international experience through research at McGill University and business development at WeGo Singapore.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -299,7 +393,7 @@ export default async function Home() {
               icon={XIcon}
             />
             <SocialLink
-              href="https://www.linkedin.com/in/gan-liu-977879341/"
+              href="https://www.linkedin.com/in/ganliu-dev"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
@@ -319,6 +413,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
+            <Education />
             <Resume />
           </div>
         </div>
